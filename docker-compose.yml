@@ -1,0 +1,19 @@
+yacarini_nginx:
+  image: jwilder/nginx-proxy
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+    - ./htpasswds:/etc/nginx/htpasswd
+  ports:
+    - "80:80"
+  environment:
+    - DEFAULT_HOST=test.dev
+
+yacarini_uno:
+  build: ./uno
+  environment:
+    - VIRTUAL_HOST=test.dev
+
+yacarini_dos:
+  build: ./dos
+  environment:
+    - VIRTUAL_HOST=testing.dev

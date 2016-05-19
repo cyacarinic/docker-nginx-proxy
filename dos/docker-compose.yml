@@ -1,0 +1,4 @@
+yacarini_segundo:
+  build: .
+  ports:
+     - "80"
